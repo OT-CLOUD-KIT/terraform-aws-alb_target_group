@@ -28,7 +28,7 @@ provider "aws" {
 }
 
 module "lb_target_group" {
-  source                            = "../ec2Instance"
+  source                            = "../alb_target_group"
   applicaton_name                   = "node_1"
   applicaton_port                   = 80
   tg_target_type                    = "instance"
