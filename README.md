@@ -56,7 +56,7 @@ Inputs
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | applicaton_name | Define the name of the application | `string` | `"false"` | yes |
-| applicaton_port | Define the application porrt  | `string` | `"false"` | no |
+| applicaton_port | Define the application porrt  | `string` | `"false"` | yes |
 | tg_target_type | You can define the type of target group | `string` | `"instance"` | no |
 | tg_protocol | Define target group protocol | `string` | `"HTTP"` | no |
 | vpc_id | Define vpc id  | `string` | `"false"` | yes |
@@ -91,4 +91,3 @@ Terraform module for creating eks cluster
 
   [devesh_homepage]: https://github.com/deveshs23
   [devesh_avataar]: https://img.cloudposse.com/150x150/https://github.com/deveshs23.png
-  
