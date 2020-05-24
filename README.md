@@ -29,7 +29,7 @@ provider "aws" {
 
 module "lb_target_group" {
   source                            = "../alb_target_group"
-  applicaton_name                   = "node_1"
+  applicaton_name                   = "Nginx"
   applicaton_port                   = 80
   tg_target_type                    = "instance"
   tg_protocol                       = "HTTP"
@@ -56,7 +56,7 @@ Inputs
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | applicaton_name | Define the name of the application | `string` | `"false"` | yes |
-| applicaton_port | Define the application porrt  | `string` | `"false"` | yes |
+| applicaton_port | Define the application port  | `string` | `"false"` | yes |
 | tg_target_type | You can define the type of target group | `string` | `"instance"` | no |
 | tg_protocol | Define target group protocol | `string` | `"HTTP"` | no |
 | vpc_id | Define vpc id  | `string` | `"false"` | yes |
