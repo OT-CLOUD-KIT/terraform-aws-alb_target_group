@@ -25,3 +25,29 @@ variable "vpc_id" {
 variable "instance_id" {
   type = string
 }
+
+# Variable to control whether to add a listener rule
+
+variable "listener_arn" {
+  description = "LB Listerner arn"
+  type        = string
+}
+
+
+variable "add_listener_rule" {
+  description = "Flag to determine whether to add a listener rule for the target group"
+  type        = bool
+  default     = false
+}
+
+variable "listener_rule_priority" {
+  description = "The priority of the listener rule"
+  type        = number
+  default     = 100
+}
+
+variable "listener_rule_host_headers" {
+  description = "The host headers for the listener rule"
+  type        = list(string)
+  default     = [""]
+}
