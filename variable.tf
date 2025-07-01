@@ -1,74 +1,53 @@
-variable "application_name" {
-  description = "Application name used in naming TG"
-  type        = string
-}
 
-variable "application_port" {
-  description = "Port on which your app runs"
-  type        = number
+/*-------------------------------------------------------*/
+variable "applicaton_name" {
+  type = string
 }
-
-variable "tg_protocol" {
-  description = "Protocol for target group (e.g. HTTP)"
-  type        = string
-  default     = "HTTP"
+variable "applicaton_port" {
+  type = number
 }
-
+variable "applicaton_health_check_target" {
+  type = string
+}
+/*-------------------------------------------------------*/
 variable "tg_target_type" {
-  description = "Target type: instance, ip, lambda"
-  type        = string
-  default     = "instance"
+  type = string
+  default = "instance"
 }
-
+variable "tg_protocol" {
+  type = string
+  default = "HTTP"
+}
 variable "vpc_id" {
-  description = "VPC ID"
+  type = string
+}
+/*-------------------------------------------------------*/
+variable "instance_id" {
+  type = string
+}
+
+# Variable to control whether to add a listener rule
+
+variable "listener_arn" {
+  description = "LB Listerner arn"
   type        = string
 }
 
-variable "health_check_path" {
-  description = "Health check path for the TG"
-  type        = string
-  default     = "/"
-}
-
-variable "instance_ids" {
-  description = "List of EC2 instance IDs to attach"
-  type        = list(string)
-  default     = []
-}
 
 variable "add_listener_rule" {
-  description = "Whether to add a listener rule"
+  description = "Flag to determine whether to add a listener rule for the target group"
   type        = bool
   default     = false
 }
 
-variable "listener_arn" {
-  description = "ARN of the ALB listener"
-  type        = string
-  default     = ""
-}
-
 variable "listener_rule_priority" {
-  description = "Priority of the listener rule"
+  description = "The priority of the listener rule"
   type        = number
   default     = 100
 }
 
 variable "listener_rule_host_headers" {
-  description = "List of host headers for routing"
+  description = "The host headers for the listener rule"
   type        = list(string)
-  default     = []
+  default     = [""]
 }
-
-variable "load_balancer_arn" {
-  description = "Optional: Load Balancer ARN for tagging or validation"
-  type        = string
-  default     = ""
-}
-
-variable "enable_attachment" {
-  type    = bool
-  default = false
-}
-
