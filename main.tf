@@ -11,7 +11,7 @@ resource "aws_lb_target_group" "this" {
 
   tags = {
     Name             = "${var.application_name}-tg"
-    LoadBalancerARN  = var.load_balancer_arn != "" ? var.load_balancer_arn : "N/A"
+    LoadBalancerARN  = var.load_balancer_arn != "" ? var.load_balancer_arn : "null"
   }
 }
 
