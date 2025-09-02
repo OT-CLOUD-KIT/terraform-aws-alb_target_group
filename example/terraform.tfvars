@@ -1,0 +1,10 @@
+applicaton_name                = "myapp"
+applicaton_port                = 80
+tg_target_type                 = "instance"
+tg_protocol                    = "HTTP"
+vpc_id                         = "vpc-0ece9af518a9c3ad0"
+applicaton_health_check_target = "/health"
+instance_id                    = "" # Leave empty if no instance needs to be attached
+add_listener_rule              = true
+listener_arn                   = "arn:aws:elasticloadbalancing:us-east-1:240851516795:listener/app/prod-otcloudkit-alb/c226dd081e62631d/08c590fdea242851"
+listener_rule_priority         = 100

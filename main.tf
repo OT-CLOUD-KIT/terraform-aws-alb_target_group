@@ -4,17 +4,19 @@ resource "aws_lb_target_group" "target_group" {
   target_type = var.tg_target_type
   protocol    = var.tg_protocol
   vpc_id      = var.vpc_id
+
   health_check {
     path = var.applicaton_health_check_target
   }
 }
-resource "aws_lb_target_group_attachment" "target_group_inctance" {
-  target_group_arn = aws_lb_target_group.target_group.arn
-  target_id        = var.instance_id
-  port             = var.applicaton_port
+
+resource "aws_lb_target_group_attachment" "target_group_instance" {
+  count             = var.instance_id != "" ? 1 : 0
+  target_group_arn  = aws_lb_target_group.target_group.arn
+  target_id         = var.instance_id
+  port              = var.applicaton_port
 }
 
-# Conditionally create an ALB listener rule
 resource "aws_lb_listener_rule" "alb_listener_rule" {
   count = var.add_listener_rule ? 1 : 0
 
